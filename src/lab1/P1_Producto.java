@@ -9,14 +9,14 @@ package lab1;
  *
  * @author Alejandro
  */
-public class Producto {
+public class P1_Producto {
     private static int cantidadTipos = 3;
     private static double[] precios = new double[3];
     
     private double precio;
     private int idTipo;
 
-    public Producto(int idTipo) {        
+    public P1_Producto(int idTipo) {        
         precios[0] = 10.5;
         precios[1] = 12.5;
         precios[2] = 3.0;
@@ -42,11 +42,11 @@ public class Producto {
     }
 
     public static void setCantidadTipos(int cantidadTipos) {
-        Producto.cantidadTipos = cantidadTipos;
+        P1_Producto.cantidadTipos = cantidadTipos;
     }
 
     public static void setPrecios(double[] precios) {
-        Producto.precios = precios;
+        P1_Producto.precios = precios;
     }
 
     public void setPrecio(double precio) {

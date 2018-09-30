@@ -9,13 +9,15 @@ package lab1;
  *
  * @author Alejandro
  */
-public class Main {
+public class P3_Grade {
+    int mark;
+    P3_Module module;
+    P3_Student student;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        P1_ProblemaEstantes pEst = new P1_ProblemaEstantes();
+    public P3_Grade(int mark, P3_Module module, P3_Student student) {
+        this.mark = mark;
+        this.module = module;
+        this.student = student;
     }
     
 }

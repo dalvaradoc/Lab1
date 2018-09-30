@@ -13,10 +13,10 @@ package lab1;
  * @since 11/09/2018
  * @version 1.0
  */
-public class Posicion {
+public class P1_Posicion {
     private int[] posicion;
     
-    public static Posicion vacio = new Posicion(1234, 1234);
+    public static P1_Posicion vacio = new P1_Posicion(1234, 1234);
 
     /**
      * Constructor que asigna la memoria del arreglo posicion, y asigna los
@@ -24,7 +24,7 @@ public class Posicion {
      * @param x
      * @param y
      */
-    public Posicion(int x, int y) {
+    public P1_Posicion(int x, int y) {
         posicion = new int[2];
         posicion[0] = y;
         posicion[1] = x;

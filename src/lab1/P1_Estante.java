@@ -12,19 +12,19 @@ import java.util.ArrayList;
  *
  * @author Alejandro
  */
-public class Estante extends becker.robots.Thing {
+public class P1_Estante extends becker.robots.Thing {
     
-    private static Posicion[] posiciones = new Posicion[20];
+    private static P1_Posicion[] posiciones = new P1_Posicion[20];
     
     private int idNumber;
-    private Producto[] productos;
+    private P1_Producto[] productos;
     private boolean active;
     
-    public Estante(City city, int i, int i1, int idNumber) {
+    public P1_Estante(City city, int i, int i1, int idNumber) {
         super(city, i, i1);
         this.idNumber = idNumber;
-        posiciones[idNumber] = new Posicion(i1, i);
-        productos = new Producto[10];
+        posiciones[idNumber] = new P1_Posicion(i1, i);
+        productos = new P1_Producto[10];
         showProductos();
         active = false;
     }
@@ -53,7 +53,7 @@ public class Estante extends becker.robots.Thing {
         this.active = active;
     }
     
-    public boolean addProducto (Producto p){
+    public boolean addProducto (P1_Producto p){
         for (int i = 0; i < 10; i++){
             if (productos[i] == null){
                 productos[i] = p;
@@ -79,7 +79,7 @@ public class Estante extends becker.robots.Thing {
     }
     
     public int[] getListOfProducts (){
-        int[] prodDisp = new int[Producto.getCantidadTipos()];
+        int[] prodDisp = new int[P1_Producto.getCantidadTipos()];
         for (int i = 0; i < 10; i++){
             if (productos[i] != null){
                 prodDisp[productos[i].getIdTipo()]++;
@@ -88,7 +88,7 @@ public class Estante extends becker.robots.Thing {
         return prodDisp;
     }
 
-    public static Posicion[] getPosiciones() {
+    public static P1_Posicion[] getPosiciones() {
         return posiciones;
     }
 }

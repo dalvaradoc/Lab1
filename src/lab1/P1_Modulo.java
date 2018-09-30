@@ -9,7 +9,7 @@ package lab1;
  *
  * @author Alejandro
  */
-public class Modulo {
+public class P1_Modulo {
     private String lecturer;
     private String name;
     

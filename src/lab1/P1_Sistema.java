@@ -13,60 +13,60 @@ import java.util.logging.Logger;
  *
  * @author Alejandro
  */
-public class Sistema {
+public class P1_Sistema {
     private City ciudad;
-    private RobotAyudante[] robots;
-    private Estante[] estantes;
+    private P1_RobotAyudante[] robots;
+    private P1_Estante[] estantes;
     private int ganancias;
 
-    public Sistema(City ciudad) {
+    public P1_Sistema(City ciudad) {
         this.ciudad = ciudad;
-        robots = new RobotAyudante[10];
-        estantes = new Estante[20];
+        robots = new P1_RobotAyudante[10];
+        estantes = new P1_Estante[20];
         ganancias = 0;
         
         for (int i = 0; i < 10; i++){
-            RobotAyudante robot = new RobotAyudante(ciudad, 9, i, Direction.NORTH, i, estantes);
+            P1_RobotAyudante robot = new P1_RobotAyudante(ciudad, 9, i, Direction.NORTH, i, estantes);
             robots[i] = robot;
         }
         
         for (int i = 0; i < 5; i++){
-            Estante e1 = new Estante(ciudad, 1+i, 1, i);
+            P1_Estante e1 = new P1_Estante(ciudad, 1+i, 1, i);
 //            for (int j = 0; j < (int)Math.floor(Math.random()*7); j++){
 //                Producto p = new Producto((int)Math.floor(Math.random()*2));
 //                e1.addProducto(p);
 //            }
-            e1.addProducto(new Producto(0));
-            e1.addProducto(new Producto(0));
+            e1.addProducto(new P1_Producto(0));
+            e1.addProducto(new P1_Producto(0));
             estantes[i] = e1;
-            Estante e2 = new Estante(ciudad, 1+i, 3, i+5);
+            P1_Estante e2 = new P1_Estante(ciudad, 1+i, 3, i+5);
 //            for (int j = 0; j < (int)Math.floor(Math.random()*7); j++){
 //                Producto p = new Producto((int)Math.floor(Math.random()*2));
 //                e2.addProducto(p);
 //            }
-            e2.addProducto(new Producto(0));
-            e2.addProducto(new Producto(0));
+            e2.addProducto(new P1_Producto(0));
+            e2.addProducto(new P1_Producto(0));
             estantes[i+5] = e2;
-            Estante e3 = new Estante(ciudad, 1+i, 5, i+10);
+            P1_Estante e3 = new P1_Estante(ciudad, 1+i, 5, i+10);
 //            for (int j = 0; j < (int)Math.floor(Math.random()*7); j++){
 //                Producto p = new Producto((int)Math.floor(Math.random()*2));
 //                e3.addProducto(p);
 //            }
-            e3.addProducto(new Producto(0));
-            e3.addProducto(new Producto(0));
+            e3.addProducto(new P1_Producto(0));
+            e3.addProducto(new P1_Producto(0));
             estantes[i+10] = e3;
-            Estante e4 = new Estante(ciudad, 1+i, 7, i+15);
+            P1_Estante e4 = new P1_Estante(ciudad, 1+i, 7, i+15);
 //            for (int j = 0; j < (int)Math.floor(Math.random()*7); j++){
 //                Producto p = new Producto((int)Math.floor(Math.random()*2));
 //                e4.addProducto(p);
 //            }
-            e4.addProducto(new Producto(0));
-            e4.addProducto(new Producto(0));
+            e4.addProducto(new P1_Producto(0));
+            e4.addProducto(new P1_Producto(0));
             estantes[i+15] = e4;
         }        
     }
     
-    private RobotAyudante getDispRobot (){
+    private P1_RobotAyudante getDispRobot (){
         for (int i = 0; i < 10; i++){
             if (!robots[i].isActive()){
                 return robots[i];
@@ -78,16 +78,16 @@ public class Sistema {
     public void almacenar (int estantesId) {
         Thread thread = new Thread () {
             public void run () {
-                RobotAyudante temp = getDispRobot();
+                P1_RobotAyudante temp = getDispRobot();
                 getDispRobot().getEstante(estantesId);
                 
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(P1_Sistema.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-                Producto pro = new Producto(2);
+                P1_Producto pro = new P1_Producto(2);
                 estantes[estantesId].addProducto(pro);
                 temp.returnEstante(estantesId);
                 
@@ -97,7 +97,7 @@ public class Sistema {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(P1_Sistema.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -119,13 +119,13 @@ public class Sistema {
                     c2 += prodEst;
                     Thread thread = new Thread () {
                         public void run () {
-                            RobotAyudante temp = getDispRobot();
+                            P1_RobotAyudante temp = getDispRobot();
                             temp.getEstante(index);
                             
                             try {
                                 Thread.sleep(2000);
                             } catch (InterruptedException ex) {
-                                Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(P1_Sistema.class.getName()).log(Level.SEVERE, null, ex);
                             }
                             
                             for (int k = 0; k < prodEst; k++){
@@ -139,20 +139,20 @@ public class Sistema {
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(P1_Sistema.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
                     final int kk = cantidad - c2;
                     c2 += prodEst;
                     Thread thread = new Thread () {
                         public void run () {
-                            RobotAyudante temp = getDispRobot();
+                            P1_RobotAyudante temp = getDispRobot();
                             temp.getEstante(index);
                             
                             try {
                                 Thread.sleep(2000);
                             } catch (InterruptedException ex) {
-                                Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(P1_Sistema.class.getName()).log(Level.SEVERE, null, ex);
                             }
                             
                             for (int k = 0; k < kk; k++){
@@ -166,7 +166,7 @@ public class Sistema {
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(P1_Sistema.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 
@@ -174,11 +174,11 @@ public class Sistema {
             
         } 
         
-        ganancias += cantidad * Producto.getPrecios()[tipo];
+        ganancias += cantidad * P1_Producto.getPrecios()[tipo];
         
         System.out.println("Cantidad: " + cantidad);
         System.out.println("Tipo de producto: tipo " + tipo);
-        System.out.println("Precio total: " + (Producto.getPrecios()[tipo]*cantidad) + '\n');
+        System.out.println("Precio total: " + (P1_Producto.getPrecios()[tipo]*cantidad) + '\n');
         
         return true;
     }

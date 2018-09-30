@@ -11,12 +11,12 @@ import becker.robots.*;
  *
  * @author Alejandro
  */
-public class ProblemaEstantes {
+public class P1_ProblemaEstantes {
     
     private City ciudad;
-    private Sistema sistema;
+    private P1_Sistema sistema;
 
-    public ProblemaEstantes() {
+    public P1_ProblemaEstantes() {
         ciudad = new City(13, 20);
         for (int i = 0; i < 12; i++){
             Wall wall = new Wall(ciudad, 0, i, Direction.NORTH);
@@ -29,7 +29,7 @@ public class ProblemaEstantes {
             Wall wall3 = new Wall(ciudad, 10, i, Direction.SOUTH);
         }
 
-        sistema = new Sistema(ciudad);
+        sistema = new P1_Sistema(ciudad);
         
         sistema.pedido(11, 0);
         
