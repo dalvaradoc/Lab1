@@ -6,7 +6,7 @@
 package Punto2;
 
 /**
- * Esta es la clase que representa los libros y guarda la información de un libro.
+ * Esta es la clase que representa un libro y guarda la información de un libro.
  * @author Alejandro Alvarado
  * @since 07/10/2018
  * @version 1.0
