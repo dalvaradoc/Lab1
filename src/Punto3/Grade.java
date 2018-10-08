@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab1;
+package Punto3;
 
 /**
  *
  * @author Alejandro
  */
-public class P3_Grade {
+public class Grade {
     int mark;
-    P3_Module module;
-    P3_Student student;
+    Module module;
+    Student student;
 
-    public P3_Grade(int mark, P3_Module module, P3_Student student) {
+    public Grade(int mark, Module module, Student student) {
         this.mark = mark;
         this.module = module;
         this.student = student;

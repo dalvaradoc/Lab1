@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab1;
+package Punto1;
 
 import becker.robots.City;
 import java.util.ArrayList;
@@ -12,19 +12,19 @@ import java.util.ArrayList;
  *
  * @author Alejandro
  */
-public class P1_Estante extends becker.robots.Thing {
+public class Estante extends becker.robots.Thing {
     
-    private static P1_Posicion[] posiciones = new P1_Posicion[20];
+    private static Posicion[] posiciones = new Posicion[20];
     
     private int idNumber;
-    private P1_Producto[] productos;
+    private Producto[] productos;
     private boolean active;
     
-    public P1_Estante(City city, int i, int i1, int idNumber) {
+    public Estante(City city, int i, int i1, int idNumber) {
         super(city, i, i1);
         this.idNumber = idNumber;
-        posiciones[idNumber] = new P1_Posicion(i1, i);
-        productos = new P1_Producto[10];
+        posiciones[idNumber] = new Posicion(i1, i);
+        productos = new Producto[10];
         showProductos();
         active = false;
     }
@@ -53,7 +53,7 @@ public class P1_Estante extends becker.robots.Thing {
         this.active = active;
     }
     
-    public boolean addProducto (P1_Producto p){
+    public boolean addProducto (Producto p){
         for (int i = 0; i < 10; i++){
             if (productos[i] == null){
                 productos[i] = p;
@@ -79,7 +79,7 @@ public class P1_Estante extends becker.robots.Thing {
     }
     
     public int[] getListOfProducts (){
-        int[] prodDisp = new int[P1_Producto.getCantidadTipos()];
+        int[] prodDisp = new int[Producto.getCantidadTipos()];
         for (int i = 0; i < 10; i++){
             if (productos[i] != null){
                 prodDisp[productos[i].getIdTipo()]++;
@@ -88,7 +88,7 @@ public class P1_Estante extends becker.robots.Thing {
         return prodDisp;
     }
 
-    public static P1_Posicion[] getPosiciones() {
+    public static Posicion[] getPosiciones() {
         return posiciones;
     }
 }

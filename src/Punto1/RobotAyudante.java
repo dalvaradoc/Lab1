@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab1;
+package Punto1;
 
 import becker.robots.City;
 import becker.robots.Direction;
@@ -14,14 +14,14 @@ import java.util.logging.Logger;
  *
  * @author Alejandro
  */
-public class P1_RobotAyudante extends becker.robots.Robot {
+public class RobotAyudante extends becker.robots.Robot {
     private static int[][] posiciones = new int[10][2];
     
     private int idNumber;
     private boolean active;
-    private P1_Estante[] estantes;
+    private Estante[] estantes;
     
-    public P1_RobotAyudante(City city, int i, int i1, Direction drctn, int idNumber, P1_Estante[] estantes) {
+    public RobotAyudante(City city, int i, int i1, Direction drctn, int idNumber, Estante[] estantes) {
         super(city, i, i1, drctn);
         this.idNumber = idNumber;
         this.estantes = estantes;
@@ -89,7 +89,7 @@ public class P1_RobotAyudante extends becker.robots.Robot {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(P1_RobotAyudante.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(RobotAyudante.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 mover(n);
             }
@@ -119,7 +119,7 @@ public class P1_RobotAyudante extends becker.robots.Robot {
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException ex) {
-                Logger.getLogger(P1_RobotAyudante.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RobotAyudante.class.getName()).log(Level.SEVERE, null, ex);
             }
             getEstante(n);
         } else {
@@ -129,9 +129,9 @@ public class P1_RobotAyudante extends becker.robots.Robot {
             this.rot(1);
             this.moverUntilWall();
             this.rot(3);
-            this.mover(Math.abs(this.getStreet() - P1_Estante.getPosiciones()[n].getY()));
+            this.mover(Math.abs(this.getStreet() - Estante.getPosiciones()[n].getY()));
             this.rot(3);
-            this.mover(Math.abs(this.getAvenue()- P1_Estante.getPosiciones()[n].getX()));
+            this.mover(Math.abs(this.getAvenue()- Estante.getPosiciones()[n].getX()));
             if (this.canPickThing()){
                 this.pickThing();
             }
@@ -149,9 +149,9 @@ public class P1_RobotAyudante extends becker.robots.Robot {
     
     public void returnEstante (int n){
         this.rotUntilDir(Direction.WEST);
-        this.mover(Math.abs(this.getAvenue()- P1_Estante.getPosiciones()[n].getX())-1);
+        this.mover(Math.abs(this.getAvenue()- Estante.getPosiciones()[n].getX())-1);
         this.rotUntilDir(Direction.NORTH);
-        this.mover(Math.abs(this.getStreet() - P1_Estante.getPosiciones()[n].getY()));
+        this.mover(Math.abs(this.getStreet() - Estante.getPosiciones()[n].getY()));
         this.rot(1);
         this.mover(1);
         this.putThing();

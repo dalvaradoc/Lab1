@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab1;
+package Punto3;
 
 import java.util.ArrayList;
 
@@ -11,19 +11,19 @@ import java.util.ArrayList;
  *
  * @author Alejandro
  */
-public class P3_Student {
+public class Student {
     String name;
-    ArrayList<P3_Grade> grades;
-    ArrayList<P3_Module> takes;
+    ArrayList<Grade> grades;
+    ArrayList<Module> takes;
 
-    public P3_Student(String name, ArrayList<P3_Module> takes) {
+    public Student(String name, ArrayList<Module> takes) {
         this.name = name;
         this.takes = takes;
         grades = new ArrayList<>();
     }
     
-    public void addGrade (int mark, P3_Module modulo) {
-        P3_Grade grade = new P3_Grade(mark, modulo, this);
+    public void addGrade (int mark, Module modulo) {
+        Grade grade = new Grade(mark, modulo, this);
         grades.add(grade);
     }
     

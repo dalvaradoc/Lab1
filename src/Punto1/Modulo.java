@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab1;
+package Punto1;
 
 /**
  *
  * @author Alejandro
  */
-public class P1_Modulo {
+public class Modulo {
     private String lecturer;
     private String name;
     
